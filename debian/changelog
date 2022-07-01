@@ -1,3 +1,10 @@
+libcamera (0.1-1) unstable; urgency=medium
+
+  [ Rafael Diniz ]
+  * Maemo Leste version as of git 2022/07/01
+
+ -- Rafael Diniz <rafael@riseup.net>  Fri, 01 Jul 2022 20:41:00 +0300
+
 libcamera (0~git20211108+1b30992b623e-4) unstable; urgency=medium
 
   [ Christopher Obbard ]
