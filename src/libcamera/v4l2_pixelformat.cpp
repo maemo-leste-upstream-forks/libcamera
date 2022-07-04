@@ -181,6 +181,8 @@ const std::map<V4L2PixelFormat, V4L2PixelFormat::Info> vpf2pf{
 		{ formats::SRGGB16, "16-bit Bayer RGRG/GBGB" } },
 
 	/* Compressed formats. */
+	{ V4L2PixelFormat(V4L2_PIX_FMT_JPEG),
+		{ formats::JPEG, "JPEG" } },
 	{ V4L2PixelFormat(V4L2_PIX_FMT_MJPEG),
 		{ formats::MJPEG, "Motion-JPEG" } },
 };

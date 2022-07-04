@@ -352,6 +352,7 @@ extern "C" {
 
 /* Compressed formats */
 #define DRM_FORMAT_MJPEG	fourcc_code('M', 'J', 'P', 'G') /* Motion-JPEG */
+#define DRM_FORMAT_JPEG	fourcc_code('J', 'P', 'E', 'G') /* JFIF JPEG */
 
 /*
  * Bayer formats

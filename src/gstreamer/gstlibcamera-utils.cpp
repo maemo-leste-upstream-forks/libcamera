@@ -18,6 +18,7 @@ static struct {
 } format_map[] = {
 	/* Compressed */
 	{ GST_VIDEO_FORMAT_ENCODED, formats::MJPEG },
+	{ GST_VIDEO_FORMAT_ENCODED, formats::JPEG },
 
 	/* RGB */
 	{ GST_VIDEO_FORMAT_RGB, formats::BGR888 },
@@ -81,6 +82,7 @@ bare_structure_from_format(const PixelFormat &format)
 
 	switch (format) {
 	case formats::MJPEG:
+	case formats::JPEG:
 		return gst_structure_new_empty("image/jpeg");
 	default:
 		return nullptr;

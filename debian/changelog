@@ -1,3 +1,10 @@
+libcamera (0.1-2) unstable; urgency=medium
+
+  [ Rafael Diniz ]
+  * Added JPEG support by Pavel Machek
+
+ -- Rafael Diniz <rafael@riseup.net>  Mon, 04 Jul 2022 21:48:33 +0300
+
 libcamera (0.1-1) unstable; urgency=medium
 
   [ Rafael Diniz ]

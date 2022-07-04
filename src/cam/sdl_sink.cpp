@@ -64,6 +64,7 @@ int SDLSink::configure(const libcamera::CameraConfiguration &config)
 	switch (cfg.pixelFormat) {
 #ifdef HAVE_SDL_IMAGE
 	case libcamera::formats::MJPEG:
+	case libcamera::formats::JPEG:
 		texture_ = std::make_unique<SDLTextureMJPG>(rect_);
 		break;
 #endif

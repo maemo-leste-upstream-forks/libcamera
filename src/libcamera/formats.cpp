@@ -944,6 +944,19 @@ const std::map<PixelFormat, PixelFormatInfo> pixelFormatInfo{
 	} },
 
 	/* Compressed formats. */
+	{ formats::JPEG, {
+		.name = "JPEG",
+		.format = formats::JPEG,
+		.v4l2Formats = {
+			.single = V4L2PixelFormat(V4L2_PIX_FMT_JPEG),
+			.multi = V4L2PixelFormat(),
+		},
+		.bitsPerPixel = 0,
+		.colourEncoding = PixelFormatInfo::ColourEncodingYUV,
+		.packed = false,
+		.pixelsPerGroup = 1,
+		.planes = {{ { 1, 1 }, { 0, 0 }, { 0, 0 } }},
+	} },
 	{ formats::MJPEG, {
 		.name = "MJPEG",
 		.format = formats::MJPEG,

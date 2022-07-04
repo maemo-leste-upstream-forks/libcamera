@@ -76,6 +76,8 @@ formats:
   - YVU444:
       fourcc: DRM_FORMAT_YVU444
 
+  - JPEG:
+      fourcc: DRM_FORMAT_JPEG
   - MJPEG:
       fourcc: DRM_FORMAT_MJPEG
 
