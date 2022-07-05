@@ -20,6 +20,7 @@ void gst_libcamera_configure_stream_from_caps(libcamera::StreamConfiguration &st
 					      GstCaps *caps);
 void gst_libcamera_resume_task(GstTask *task);
 std::shared_ptr<libcamera::CameraManager> gst_libcamera_get_camera_manager(int &ret);
+void colorspace_form_colorimetry(std::optional<libcamera::ColorSpace> &colorspace, const gchar *colorimetry);
 
 /**
  * \class GLibLocker

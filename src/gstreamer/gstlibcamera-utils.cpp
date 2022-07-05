@@ -74,6 +74,12 @@ static const std::map<ColorSpace::Range, GstVideoColorRange> ToGstVideoColorRang
 	{ ColorSpace::Range::Limited, GST_VIDEO_COLOR_RANGE_16_235 },
 };
 
+static const std::map<std::string, ColorSpace> colorimetryToColorSpace = {
+	{ GST_VIDEO_COLORIMETRY_SRGB, ColorSpace::Srgb },
+	{ GST_VIDEO_COLORIMETRY_BT709, ColorSpace::Rec709 },
+	{ GST_VIDEO_COLORIMETRY_BT2020, ColorSpace::Rec2020 },
+};
+
 static GstVideoFormat
 pixel_format_to_gst_format(const PixelFormat &format)
 {
@@ -160,6 +166,15 @@ colorimerty_from_colorspace(std::optional<ColorSpace> colorSpace)
 	return colorimetry_str;
 }
 
+void colorspace_form_colorimetry(std::optional<ColorSpace> &colorspace, const gchar *colorimetry)
+{
+	auto iterColorSpace = colorimetryToColorSpace.find(colorimetry);
+	if (iterColorSpace != colorimetryToColorSpace.end()) {
+		colorspace = iterColorSpace->second;
+		return;
+	}
+}
+
 GstCaps *
 gst_libcamera_stream_formats_to_caps(const StreamFormats &formats)
 {
@@ -207,10 +222,17 @@ gst_libcamera_stream_configuration_to_caps(const StreamConfiguration &stream_cfg
 {
 	GstCaps *caps = gst_caps_new_empty();
 	GstStructure *s = bare_structure_from_format(stream_cfg.pixelFormat);
+	const gchar *colorimetry;
+	std::optional<ColorSpace> colorspace = stream_cfg.colorSpace;
+	if (colorspace)
+		colorimetry = colorimerty_from_colorspace(colorspace);
+	else
+		colorimetry = g_strdup("Unset");
 
 	gst_structure_set(s,
 			  "width", G_TYPE_INT, stream_cfg.size.width,
 			  "height", G_TYPE_INT, stream_cfg.size.height,
+			  "colorimetry", G_TYPE_STRING, colorimetry,
 			  nullptr);
 	gst_caps_append_structure(caps, s);
 
