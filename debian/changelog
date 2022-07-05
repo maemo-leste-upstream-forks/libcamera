@@ -1,3 +1,10 @@
+libcamera (0.1-4) unstable; urgency=medium
+
+  [ Rafael Diniz ]
+  * More Colorspace conversion code by Rishikesh
+
+ -- Rafael Diniz <rafael@riseup.net>  Tue, 05 Jul 2022 20:01:04 +0300
+
 libcamera (0.1-3) unstable; urgency=medium
 
   [ Rafael Diniz ]
